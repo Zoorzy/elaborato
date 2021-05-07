@@ -1,0 +1,23 @@
+Progetto: 
+Una piattaforma che permetta di dare recensioni (positive o negative che siano) ad aziende presso le quali si ha lavorato
+Denunce sui posti di lavoro (con possibilità di anonimato)
+Storia → Sindacati e lotte per il lavoro, come il Marxismo ha influenzato il mondo
+Inglese → Industrial Revolution e condizioni di lavoro
+Educazione civica → Punto 8 Agenda 2030
+PCTO → Users - Role - Permissions
+
+Descrizione Generale
+Una piattaforma che permetta ai lavoratori di qualsivoglia settore che possano in tutta libertà dare un proprio feedback alle aziende presso le quali hanno lavorato (per evitare ripercussioni dalle aziende stesse è possibile dare recensioni in anonimo)
+
+Sicurezza (Dal punto di vista informatico)
+Password crittografate
+Se commento è dato in anonimato, sulla piattaforma non si vedrà da chi è arrivato il commento
+Misure contro SQL Injection
+
+Sicurezza (Dal punto di vista sistemistico)
+DMZ
+HTTPS (porta 443) → collegamento con le socket di tecnologie
+Server di autenticazione (?)
+Server mail per recuperare la password primaria
+Subnetting
+IP Pubblico e Privato, NAT
