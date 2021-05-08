@@ -1,5 +1,5 @@
 <?php
-require("includes/header.php");
+include_once "includes/header.php";
 ?>
 
 
@@ -12,7 +12,7 @@ require("includes/header.php");
         <!-- Main Content -->
         <section>
           <header>
-            <h2>One Column</h2>
+            <h2>Contatti</h2>
             <h3>A generic one column layout</h3>
           </header>
           <p>
@@ -22,6 +22,7 @@ require("includes/header.php");
             lacinia eget, blandit nec ipsum. Donec vitae turpis ipsum. Aliquam mauris libero,
             sagittis in eleifend at, mattis imperdiet velit. Donec urna risus, rutrum molestie
             varius ac, lacinia sit amet augue. Nam ultrices elementum eros.
+            <a href="./twocolumn2.php">Company n1</a>
           </p>
           <p>
             Sed faucibus viverra ligula, non varius magna semper vitae. Donec eu justo ut ipsum
@@ -33,6 +34,7 @@ require("includes/header.php");
             elit. Suspendisse fermentum adipiscing nisi, a tempor libero malesuada at. Morbi
             lacinia dui adipiscing risus eleifend tincidunt. Proin eu mauris eu tellus eleifend
             hendrerit.
+            <a href="./twocolumn2.php">Company n2</a>
           </p>
           <p>
             Mauris sit amet tellus urna. In facilisis, tortor vitae ultricies egestas, odio
@@ -41,6 +43,7 @@ require("includes/header.php");
             vehicula fermentum ligula at pretium. Suspendisse semper iaculis eros, eu aliquam
             justo imperdiet vel. Proin nec dictum mi. Duis commodo enim non tellus interdum
             iaculis. Phasellus ultrices diam sit amet orci lacinia sed consequat dui auctor.
+            <a href="./twocolumn2.php">Company n3</a>
           </p>
           <p>
             Sed faucibus viverra ligula, non varius magna semper vitae. Donec eu justo ut ipsum
@@ -52,14 +55,7 @@ require("includes/header.php");
             elit. Suspendisse fermentum adipiscing nisi, a tempor libero malesuada at. Morbi
             lacinia dui adipiscing risus eleifend tincidunt. Proin eu mauris eu tellus eleifend
             hendrerit.
-          </p>
-          <p>
-            Mauris sit amet tellus urna. In facilisis, tortor vitae ultricies egestas, odio
-            mi rhoncus arcu, quis euismod felis felis et velit. Mauris varius consectetur erat
-            egestas tempus. Cras convallis odio sit amet risus convallis porttitor. Integer
-            vehicula fermentum ligula at pretium. Suspendisse semper iaculis eros, eu aliquam
-            justo imperdiet vel. Proin nec dictum mi. Duis commodo enim non tellus interdum
-            iaculis. Phasellus ultrices diam sit amet orci lacinia sed consequat dui auctor.
+            <a href="./twocolumn2.php">Company n4</a>
           </p>
         </section>
 
@@ -69,5 +65,5 @@ require("includes/header.php");
 </section>
 
 <?php
-require('includes/footer.php');
+include_once 'includes/footer.php';
 ?>

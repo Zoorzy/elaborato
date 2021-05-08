@@ -7,57 +7,70 @@ if (isset($_POST["submit"])) {
   $email = $_POST['email'];
   $name = $_POST['name'];
   $surname = $_POST['surname'];
-  $password = $_POST['password'];
+  $pwd = $_POST['password'];
   $passwordrepeat = $_POST['passwordrepeat'];
 
   require_once 'db_connect.inc.php';
   require_once 'functions.inc.php';
 
-  /*
-  if(emptyInputSignup($username, $email, $name, $surname, $password, $passwordrepeat) !== false){
-    header("location: ../signup.php?error=emptyinput");
-    exit();
-  }
-  */
-
-  if(invalidUsername($username) !== false){
+  // check if the username is written in a standard way
+  if (invalidUsername($username)) {
     header("location: ../signup.php?error=invalidusername");
     exit();
   }
 
-  if(invalidEmail($email) !== false){
+  //check in the db if the username already exists
+  if (usernameExists($conn, $username)) {
+    header("location: ../signup.php?error=usernametaken");
+    exit();
+  }
+
+  //check in the db if the email already exists
+  if (emailExists($conn, $email)) {
+    header("location: ../signup.php?error=emailtaken");
+    exit();
+  }
+
+  //check if the email is written in a standard way
+  if (invalidEmail($email)) {
     header("location: ../signup.php?error=invalidemail");
     exit();
   }
 
-  if(passwordMatch($password, $passwordrepeat) !== false){
-    header("location: ../signup.php?error=passwordsdontmatch");
+  //check if passwords match
+  if (!passwordMatch($pwd, $passwordrepeat)) {
+    header('location: ../signup.php?error=passworddontmatch');
     exit();
   }
 
-  if(usernameExists($conn, $username, $email) !== false){
-    header("location: ../signup.php?error=usernameexists");
+  //check if password is long enough
+  if (!longEnough($pwd)) {
+    header("location: ../signup.php?error=passwordlength");
     exit();
   }
 
-  createUser($conn, $username, $email, $name, $surname, $password);
+  //check if password contains special characters
+  if (!containsNumbers($pwd)) {
+    header("location: ../signup.php?error=passwordnumbers");
+    exit();
+  }
 
+  //check if password contains letters ([a-zA-Z])
+  if(!containsLetters($pwd)){
+    header("location: ../signup.php?error=passwordletters");
+    exit();
+  }
+
+  /*
+  //check if password contains special chars 
+  if(!containsSpecialChars($pwd)){
+    header("location: ../signup.php?error=passwordspecialchars");
+    exit();
+  }
+  */
+
+  //if everything is ok, then create the user record in the db
+  createUser($conn, $username, $email, $name, $surname, $pwd);
 } else {
   header("location: ../signup.php");
 }
-
-
-/*
-$username = $_POST['username'];
-$password = $_POST['password'];
-
-$query = "INSERT INTO users(username, password) VALUES(?, ?)";
-
-$stmt = $conn->prepare($query);
-$stmt->bind_param('ss', $username, $password);
-// 's' specifies the variable type => 'string'
-
-$stmt->execute();
-
-$result = $stmt->get_result();
-*/

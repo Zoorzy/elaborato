@@ -1,19 +1,15 @@
 <?php
-require("db_connect.inc.php");
-require("session.inc.php");
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+if (isset($_POST['submit'])) {
 
-$query = "SELECT * FROM users WHERE username = ? AND password = ?";
+  $usernameemail = $_POST['usernameemail'];
+  $pwd = $_POST['password'];
 
-$stmt = $conn->prepare($query);
-$stmt->bind_param('ss', $username, $password);
+  require_once './db_connect.inc.php';
+  require_once './functions.inc.php';
 
-$stmt->execute();
-
-$result = $stmt->get_result();
-
-$_SESSION = $result->fetch_assoc();
-
-header('location: ../index.php');
+  loginUser($conn, $usernameemail, $pwd);
+} else {
+  header('location: ../login.php');
+  exit();
+}

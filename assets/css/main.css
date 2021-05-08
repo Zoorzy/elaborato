@@ -59,20 +59,69 @@ input::-moz-focus-inner {
   margin: 3px 10px;
 }
 
+/* START INPUT STYLE */
+
+.input-field {
+  position: relative;
+  height: 44px;
+  line-height: 44px;
+  margin: 30px auto;
+}
+
+label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #d3d3d3;
+  transition: 0.2s all;
+  cursor: text;
+}
+
+input, button {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid #d3d3d3;
+  box-shadow: none;
+  color: #111;
+}
+
+input:invalid {
+  outline: 0;
+}
+
+input:focus~label, input:valid~label {
+  font-size: 14px;
+  top: -24px;
+}
+
+/* END INPUT STYLE */
+
 #LoginForm, #SignupForm {
   width: 50%;
   margin: 5px auto;
 }
 
-input[type=text], button, input[type=password] {
-  width: 90%;
-  margin: 5px auto;
-  padding: 5px;
+/* START ERROR MESSAGES */
+
+.confirmalert {
+  background-color: #29b931;
 }
 
-#error {
-  display: none;
+.erroralert {
+  background-color: #f44336;
 }
+
+.alert {
+  padding: 20px;
+  color: white;
+  width: 50%;
+  margin: auto;
+}
+
+/* END ERROR MESSAGES */
 
 input, select, textarea {
   -moz-appearance: none;

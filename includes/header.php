@@ -11,10 +11,12 @@ require("db_connect.inc.php");
 <html>
 
 <head>
+
   <title>CompanyAdVisor</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="/elaborato/assets/css/main.css" />
+
 </head>
 
 <body>
@@ -33,9 +35,15 @@ require("db_connect.inc.php");
             <nav id="nav">
               <a href="./index.php">Homepage</a>
               <a href="./threecolumn.php">Blog[3]</a>
-              <a href="./twocolumn1.php">Contatti[2]</a>
-              <a href="./twocolumn2.php">Two Column #2</a>
-              <a href="./onecolumn.php">Ricerca aziende[1]</a>
+              <a href="./twocolumn1.php">Ricerca aziende[2]</a>
+              <!-- A questa pagina si arriva dalla pagina 'Ricerca Aziende' -->
+              <!-- <a href="./twocolumn2.php">Two Column #2</a> -->
+              <a href="./onecolumn.php">Contatti[1]</a>
+              <?php
+              if (isset($_SESSION['id'])) {
+                echo '<a href="includes/logout.inc.php">Logout</a>';
+              }
+              ?>
             </nav>
 
           </div>
@@ -67,15 +75,8 @@ require("db_connect.inc.php");
             </div>
           </div>
         </div>
-        <!-- -->
+
       <?php
       }
       ?>
     </section>
-    <?php
-    if (isset($_SESSION['id'])) {
-    ?>
-    <a href="includes/logout.inc.php" id='logout'>Logout</a>
-    <?php
-    }
-    ?>

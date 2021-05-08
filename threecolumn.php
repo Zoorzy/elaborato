@@ -44,7 +44,7 @@ require("includes/header.php");
         <!-- Main Content -->
         <section>
           <header>
-            <h2>Three Column</h2>
+            <h2>Blog</h2>
             <h3>A generic three column layout</h3>
           </header>
           <p>
