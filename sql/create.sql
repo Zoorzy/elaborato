@@ -63,6 +63,7 @@ CREATE TABLE `posts` (
   `company_id` INT(11) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
   `anonymous` TINYINT(1) NOT NULL DEFAULT 1,
+  `rating` TINYINT(1) NOT NULL,
   FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, 
   FOREIGN KEY (`company_id`) REFERENCES `company` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 );
