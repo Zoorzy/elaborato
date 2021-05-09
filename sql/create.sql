@@ -49,7 +49,7 @@ CREATE TABLE `company` (
   `name` VARCHAR(255) NOT NULL,
   `category` VARCHAR(255) DEFAULT NULL,
   `description` VARCHAR(255) DEFAULT NULL,
-  `country` VARCHAR(255) NOT NULL,
+  `region` VARCHAR(255) NOT NULL,
   `city` VARCHAR(255) NOT NULL,
   `street` VARCHAR(255) DEFAULT NULL,
   `street number` VARCHAR(255) DEFAULT NULL,
