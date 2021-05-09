@@ -33,7 +33,7 @@ CREATE TABLE `permissions_users` (
   CONSTRAINT `permissions_users` PRIMARY KEY (`user_id`, `permission_id`)
 );
 
---CREATE TABLE `permission_role` (
+-- CREATE TABLE `permission_role` (
 --  `id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 -- `role_id` TINYINT(11) NOT NULL,
 --  `role` VARCHAR(255) NOT NULL,
