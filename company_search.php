@@ -14,7 +14,12 @@ include_once "includes/header.php";
           <header>
             <h2>Ricerca Aziende</h2>
             <h3>A generic two column layout</h3>
+            <div class="input-field">
+              <input type="search" name="company_search" id="company_search">
+              <label for="company_search">Search for a company name</label>
+            </div>
           </header>
+          <p>I risultati saranno visualizzati qui</p>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam metus, congue
             vel suscipit ut, dignissim non risus. Vestibulum ante est, fringilla nec placerat

@@ -34,11 +34,11 @@ require("db_connect.inc.php");
             <!-- Nav -->
             <nav id="nav">
               <a href="./index.php">Homepage</a>
-              <a href="./threecolumn.php">Blog[3]</a>
-              <a href="./twocolumn1.php">Ricerca aziende[2]</a>
+              <a href="./blog.php">Blog[3]</a>
+              <a href="./company_search.php">Ricerca aziende[2]</a>
               <!-- A questa pagina si arriva dalla pagina 'Ricerca Aziende' -->
               <!-- <a href="./twocolumn2.php">Two Column #2</a> -->
-              <a href="./onecolumn.php">Contatti[1]</a>
+              <a href="./company_info.php">Contatti[1]</a>
               <?php
               if (isset($_SESSION['id'])) {
                 echo '<a href="includes/logout.inc.php">Logout</a>';

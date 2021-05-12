@@ -12,7 +12,7 @@ require("includes/header.php");
         <!-- Left Sidebar -->
         <section>
           <header>
-            <h2>Ipsum Dolor</h2>
+            <h2>Ultime notizie su di noi</h2>
           </header>
           <p>
             Vehicula fermentum ligula at pretium. Suspendisse semper iaculis eros, eu aliquam
