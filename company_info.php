@@ -13,10 +13,6 @@ require("includes/header.php");
           <header>
             <h2>Dati Generali</h2>
           </header>
-          <p>
-            Vehicula fermentum ligula at pretium. Suspendisse semper iaculis eros, eu aliquam
-            iaculis. Phasellus ultrices diam sit amet orci lacinia sed consequat.
-          </p>
           <ul class="link-list">
             <!-- Dati che devo richiedere a MySQL -->
             <li>Indirizzo : </li>
@@ -25,21 +21,6 @@ require("includes/header.php");
             <li>Dipendenti : </li>
             <li>Telefono : </li>
             <li>E-Mail : </li>
-          </ul>
-        </section>
-        <section>
-          <header>
-            <h2>Ipsum Dolor</h2>
-          </header>
-          <p>
-            Vehicula fermentum ligula at pretium. Suspendisse semper iaculis eros, eu aliquam
-            iaculis. Phasellus ultrices diam sit amet orci lacinia sed consequat.
-          </p>
-          <ul class="link-list">
-            <li><a href="#">Sed dolore viverra</a></li>
-            <li><a href="#">Ligula non varius</a></li>
-            <li><a href="#">Dis parturient montes</a></li>
-            <li><a href="#">Nascetur ridiculus</a></li>
           </ul>
         </section>
 

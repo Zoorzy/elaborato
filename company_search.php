@@ -13,7 +13,6 @@ include_once "includes/header.php";
         <section>
           <header>
             <h2>Ricerca Aziende</h2>
-            <h3>A generic two column layout</h3>
             <div class="input-field">
               <input type="search" name="company_search" id="company_search">
               <label for="company_search">Search for a company name</label>
