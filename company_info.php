@@ -47,9 +47,10 @@ require("includes/header.php");
       <div class="col-9 col-12-medium imp-medium">
 
         <!-- Main Content -->
+        <!-- Valori da inserire dopo query con parametro GET -->
         <section>
           <header>
-            <h2>Two Column #2</h2>
+            <h2>Azienda </h2>
             <h3>Another generic two column layout</h3>
           </header>
           <p>

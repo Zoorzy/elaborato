@@ -78,12 +78,11 @@ include_once "includes/header.php";
           </header>
           <!-- Query che prende le 5 aziende con le valutazioni migliori -->
           <ul class="link-list">
-            <li><a href="#">Sed dolore viverra</a></li>
-            <li><a href="#">Ligula non varius</a></li>
-            <li><a href="#">Nec sociis natoque</a></li>
-            <li><a href="#">Penatibus et magnis</a></li>
-            <li><a href="#">Dis parturient montes</a></li>
-            <li><a href="#">Nascetur ridiculus</a></li>
+            <li><a href="./company_info.php?id=#">Azienda</a></li>
+            <li><a href="./company_info.php?id=#">Azienda</a></li>
+            <li><a href="./company_info.php?id=#">Azienda</a></li>
+            <li><a href="./company_info.php?id=#">Azienda</a></li>
+            <li><a href="./company_info.php?id=#">Azienda</a></li>
           </ul>
         </section>
         <section>
