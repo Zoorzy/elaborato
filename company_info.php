@@ -18,6 +18,7 @@ require("includes/header.php");
             iaculis. Phasellus ultrices diam sit amet orci lacinia sed consequat.
           </p>
           <ul class="link-list">
+            <!-- Dati che devo richiedere a MySQL -->
             <li>Indirizzo : </li>
             <li>Valutazione Media : </li>
             <li>Commenti : </li>
