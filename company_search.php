@@ -20,7 +20,42 @@ include_once "includes/header.php";
           </header>
 
           <div id="search_results">
-            <p>I risultati saranno visualizzati qui</p>
+            <?php
+
+            $sql = "SELECT * FROM company WHERE name LIKE '%' ORDER BY name LIMIT 5";
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+              while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+                <a href="./company_info.php?id=<?php echo $row['id']; ?>">
+                  <section>
+                    <h2>
+                      <?php echo $row['name']; ?>
+                    </h2>
+
+                    <?php echo "("; ?>
+                    <?php echo $row['region'] . ", "; ?>
+                    <?php echo $row['city'] . ", "; ?>
+                    <?php echo $row['street']; ?>
+                    <?php echo $row['street number']; ?>
+                    <?php echo ")"; ?>
+
+                    <p>
+                      <?php echo $row['category']; ?><br>
+                      <?php echo $row['description']; ?>
+                    </p>
+                  </section>
+                </a>
+            <?php
+              }
+            } else {
+              echo '<p>';
+              echo 'Empty record!';
+              echo '</p>';
+            }
+
+            ?>
           </div>
 
           <script>

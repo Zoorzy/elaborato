@@ -1,5 +1,26 @@
 <?php
+
+//if 'id' GET param isn't set OR it is set and it is not an int value, then...
+if (!isset($_GET['id']) || (isset($_GET['id']) && !ctype_digit(strval($_GET['id'])))) {
+
+  header("location: ./index.php");
+  exit();
+}
+
 require("includes/header.php");
+
+$sql = "SELECT * FROM company WHERE id=" . $_GET['id'];
+
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result)) {
+  //se trovo corrispondenza nel db allora ...
+  $row = mysqli_fetch_assoc($result);
+} else {
+  //se l'id non corrisponde a nessuna azienda nel database allora ...
+  header("location: ./company_search.php");
+}
+
 ?>
 
 <!-- Content -->
@@ -15,12 +36,23 @@ require("includes/header.php");
           </header>
           <ul class="link-list">
             <!-- Dati che devo richiedere a MySQL -->
-            <li>Indirizzo : </li>
-            <li>Valutazione Media : </li>
-            <li>Commenti : </li>
-            <li>Dipendenti : </li>
-            <li>Telefono : </li>
-            <li>E-Mail : </li>
+            <li>Indirizzo :
+              <?php echo $row['region'] . ", "; ?>
+              <?php echo $row['city'] . ", "; ?>
+              <?php echo "via " . $row['street']; ?>
+              <?php echo $row['street number']; ?>
+            </li>
+            <!-- <li>Valutazione Media :</li>-->
+            <!-- <li>Commenti : </li> -->
+            <li>Dipendenti :
+              <?php echo $row['employees']; ?>
+            </li>
+            <li>Telefono :
+              <?php echo $row['phone']; ?>
+            </li>
+            <li>E-Mail :
+              <?php echo $row['email']; ?>
+            </li>
           </ul>
         </section>
 
@@ -31,55 +63,11 @@ require("includes/header.php");
         <!-- Valori da inserire dopo query con parametro GET -->
         <section>
           <header>
-            <h2>Azienda </h2>
-            <h3>Another generic two column layout</h3>
+            <h2><?php echo $row['name']; ?></h2>
+            <?php if(isset($row['description'])) echo "<h3>'" . $row['description'] . "'</h3>"; ?>
           </header>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam metus, congue
-            vel suscipit ut, dignissim non risus. Vestibulum ante est, fringilla nec placerat
-            eu, vestibulum vitae diam. Integer eget egestas eros. Duis enim erat, mollis quis
-            lacinia eget, blandit nec ipsum. Donec vitae turpis ipsum. Aliquam mauris libero,
-            sagittis in eleifend at, mattis imperdiet velit. Donec urna risus, rutrum molestie
-            varius ac, lacinia sit amet augue. Nam ultrices elementum eros.
-          </p>
-          <p>
-            Sed faucibus viverra ligula, non varius magna semper vitae. Donec eu justo ut ipsum
-            hendrerit congue nec eu risus. Cum sociis natoque penatibus et magnis dis parturient
-            montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing
-            egestas tempus. Cras convallis odio sit amet risus convallis porttitor. Integer
-            vehicula fermentum ligula at pretium. Suspendisse semper iaculis eros, eu aliquam
-            justo imperdiet vel. Proin nec dictum mi. Duis commodo enim non tellus interdum
-            elit. Suspendisse fermentum adipiscing nisi, a tempor libero malesuada at. Morbi
-            lacinia dui adipiscing risus eleifend tincidunt. Proin eu mauris eu tellus eleifend
-            hendrerit.
-          </p>
-          <p>
-            Mauris sit amet tellus urna. In facilisis, tortor vitae ultricies egestas, odio
-            mi rhoncus arcu, quis euismod felis felis et velit. Mauris varius consectetur erat
-            egestas tempus. Cras convallis odio sit amet risus convallis porttitor. Integer
-            vehicula fermentum ligula at pretium. Suspendisse semper iaculis eros, eu aliquam
-            justo imperdiet vel. Proin nec dictum mi. Duis commodo enim non tellus interdum
-            iaculis. Phasellus ultrices diam sit amet orci lacinia sed consequat dui auctor.
-          </p>
-          <p>
-            Sed faucibus viverra ligula, non varius magna semper vitae. Donec eu justo ut ipsum
-            hendrerit congue nec eu risus. Cum sociis natoque penatibus et magnis dis parturient
-            montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing
-            egestas tempus. Cras convallis odio sit amet risus convallis porttitor. Integer
-            vehicula fermentum ligula at pretium. Suspendisse semper iaculis eros, eu aliquam
-            justo imperdiet vel. Proin nec dictum mi. Duis commodo enim non tellus interdum
-            elit. Suspendisse fermentum adipiscing nisi, a tempor libero malesuada at. Morbi
-            lacinia dui adipiscing risus eleifend tincidunt. Proin eu mauris eu tellus eleifend
-            hendrerit.
-          </p>
-          <p>
-            Mauris sit amet tellus urna. In facilisis, tortor vitae ultricies egestas, odio
-            mi rhoncus arcu, quis euismod felis felis et velit. Mauris varius consectetur erat
-            egestas tempus. Cras convallis odio sit amet risus convallis porttitor. Integer
-            vehicula fermentum ligula at pretium. Suspendisse semper iaculis eros, eu aliquam
-            justo imperdiet vel. Proin nec dictum mi. Duis commodo enim non tellus interdum
-            iaculis. Phasellus ultrices diam sit amet orci lacinia sed consequat dui auctor.
-          </p>
+          
+          <p>Qui ci andranno i commenti dalla tabella commenti</p>
         </section>
 
       </div>

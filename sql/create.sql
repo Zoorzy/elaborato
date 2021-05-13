@@ -37,6 +37,7 @@ CREATE TABLE `company` (
   `name` VARCHAR(255) NOT NULL,
   `category` VARCHAR(255) DEFAULT NULL,
   `description` VARCHAR(255) DEFAULT NULL,
+  `employees` INT(11) DEFAULT NULL,
   `region` VARCHAR(255) NOT NULL,
   `city` VARCHAR(255) NOT NULL,
   `street` VARCHAR(255) DEFAULT NULL,
@@ -61,5 +62,5 @@ INSERT INTO `roles`(`name`, `description`) VALUES ('SuperAdmin', 'Account that c
 
 INSERT INTO `permissions`(`name`, `description`) VALUES ('delete_users', "Give the ability to delete other users' account");
 
-INSERT INTO `company` (`id`, `name`, `category`, `description`, `region`, `city`, `street`, `street number`, `phone`, `email`) VALUES (NULL, 'Ferrari', 'car industry', 'most famous italian sports car producer', 'emilia-romagna', 'modena', 'emilia est', '85', '0536949111', 'ferrari@ferrari.it');
+INSERT INTO `company` (`id`, `name`, `category`, `description`, `employees`, `region`, `city`, `street`, `street number`, `phone`, `email`) VALUES (NULL, 'Ferrari', 'car industry', 'most famous italian sports car producer', '1000', 'emilia-romagna', 'modena', 'emilia est', '85', '0536949111', 'ferrari@ferrari.it');
 INSERT INTO `company`(`name`, `category`, `description`, `region`, `city`, `street`, `street number`, `phone`, `email`) VALUES ('Sperlari', 'food producer', 'one of the largest food producer in lombardy', 'lombardia', 'Cremona', 'cremonese', '44', '3333333333', 'sperlari@sperlari.it');
