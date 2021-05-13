@@ -58,4 +58,8 @@ CREATE TABLE `posts` (
 
 INSERT INTO `roles`(`name`, `description`) VALUES ('User', 'Default user account');
 INSERT INTO `roles`(`name`, `description`) VALUES ('SuperAdmin', 'Account that can manage the entire webapp');
-INSERT INTO `permissions`(`name`, `description`) VALUES ('delete_users', 'Give the ability to delete other users\' account');
+
+INSERT INTO `permissions`(`name`, `description`) VALUES ('delete_users', "Give the ability to delete other users' account");
+
+INSERT INTO `company` (`id`, `name`, `category`, `description`, `region`, `city`, `street`, `street number`, `phone`, `email`) VALUES (NULL, 'Ferrari', 'car industry', 'most famous italian sports car producer', 'emilia-romagna', 'modena', 'emilia est', '85', '0536949111', 'ferrari@ferrari.it');
+INSERT INTO `company`(`name`, `category`, `description`, `region`, `city`, `street`, `street number`, `phone`, `email`) VALUES ('Sperlari', 'food producer', 'one of the largest food producer in lombardy', 'lombardia', 'Cremona', 'cremonese', '44', '3333333333', 'sperlari@sperlari.it');
