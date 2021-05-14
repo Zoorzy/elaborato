@@ -44,9 +44,11 @@ if (mysqli_num_rows($result)) {
             </li>
             <!-- <li>Valutazione Media :</li>-->
             <!-- <li>Commenti : </li> -->
-            <li>Dipendenti :
-              <?php echo $row['employees']; ?>
-            </li>
+            <?php if ($row['employees']) { ?>
+              <li>Dipendenti :
+                <?php echo $row['employees']; ?>
+              </li>
+            <?php } ?>
             <li>Telefono :
               <?php echo $row['phone']; ?>
             </li>
@@ -64,9 +66,9 @@ if (mysqli_num_rows($result)) {
         <section>
           <header>
             <h2><?php echo $row['name']; ?></h2>
-            <?php if(isset($row['description'])) echo "<h3>'" . $row['description'] . "'</h3>"; ?>
+            <?php if (isset($row['description'])) echo "<h3>'" . $row['description'] . "'</h3>"; ?>
           </header>
-          
+
           <p>Qui ci andranno i commenti dalla tabella commenti</p>
         </section>
 
