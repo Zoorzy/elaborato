@@ -116,7 +116,7 @@ if (mysqli_num_rows($result)) {
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
           <?php
 
-          $sql = "SELECT * FROM posts WHERE company_id=" . $_GET['id'];
+          $sql = "SELECT posts.*, users.username FROM posts, users WHERE company_id=" . $_GET['id'] . " AND posts.user_id = users.id";
 
           $result = mysqli_query($conn, $sql);
 
@@ -128,14 +128,14 @@ if (mysqli_num_rows($result)) {
           ?>
               <section>
                 <?php
+                echo $row['created_at'] . "<br>";
                 if ($row['anonymous'] == 0) {
-                  echo $row['user_id'];
+                  echo $row['username'];
                 } else {
                   echo "Anonymous";
                 }
                 echo " [" . $row['rating'] . "/5 stelle]";
                 ?>
-                <br>
                 <?php
                 if (isset($_SESSION['id'])) {
                 ?>
@@ -144,8 +144,6 @@ if (mysqli_num_rows($result)) {
                     <i <?php if (userLiked($row['id'])) : ?> class="fa fa-thumbs-up like-btn" <?php else : ?> class="fa fa-thumbs-o-up like-btn" <?php endif ?> data-id="<?php echo $row['id'] ?>"></i>
                     <span class="likes"><?php echo getLikes($row['id']); ?></span>
                     <!-- fine likes -->
-                    <?php //echo $row['id'] . " - " . $_SESSION['user_id']; 
-                    ?>
                   </div>
 
                   <div id='dislikes'>
@@ -156,6 +154,11 @@ if (mysqli_num_rows($result)) {
                   </div>
                 <?php
                 }
+
+                if ($row['description'] !== NULL) {
+                  echo "<h3>- " . $row['description'] . "</h3>";
+                }
+
                 ?>
 
               </section>

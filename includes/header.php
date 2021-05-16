@@ -41,7 +41,7 @@ require("db_connect.inc.php");
               <a href="./company_info.php">Contatti[1]</a>
               <?php
               if (isset($_SESSION['id'])) {
-                echo '<a href="includes/logout.inc.php">Logout</a>';
+                echo '<a href="includes/logout.inc.php">Logout ' . $_SESSION['username'] . '</a>';
               }
               ?>
             </nav>

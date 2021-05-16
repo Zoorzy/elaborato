@@ -196,6 +196,7 @@ function loginUser($conn, $usernameemail, $pwd)
     session_start();
 
     $_SESSION['id'] = $uidExists['id'];
+    $_SESSION['username'] = $uidExists['username'];
     header("location: ../index.php");
     exit();
   }

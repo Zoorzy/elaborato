@@ -158,11 +158,11 @@ input:focus~label:not(body label.stars), input:valid~label:not(body label.stars)
 }
 
 #likes, #dislikes {
-  float: left;
-  width: 50%;
+  display: inline;
+  width: 100px;
   padding: 20px;
   text-align: center;
-  font-size: 30px;
+  font-size: 22px;
 }
 
 /* END STYLE LIKE DISLIKE BUTTON */
