@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `rating_info` (
   `user_id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
   `rating_action` varchar(30) NOT NULL,
-  -- rating_info can be like, unline, dislike, undislike
+  -- rating_info can be like, dislike
   PRIMARY KEY `PK_rating_info` (`user_id`,`post_id`)
 );
 
