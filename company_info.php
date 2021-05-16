@@ -136,22 +136,27 @@ if (mysqli_num_rows($result)) {
                 echo " [" . $row['rating'] . "/5 stelle]";
                 ?>
                 <br>
+                <?php
+                if (isset($_SESSION['id'])) {
+                ?>
+                  <div id='likes'>
+                    <!-- if user likes post, style button differently -->
+                    <i <?php if (userLiked($row['id'])) : ?> class="fa fa-thumbs-up like-btn" <?php else : ?> class="fa fa-thumbs-o-up like-btn" <?php endif ?> data-id="<?php echo $row['id'] ?>"></i>
+                    <span class="likes"><?php echo getLikes($row['id']); ?></span>
+                    <!-- fine likes -->
+                    <?php //echo $row['id'] . " - " . $_SESSION['user_id']; 
+                    ?>
+                  </div>
 
-                <div id='likes'>
-                  <!-- if user likes post, style button differently -->
-                  <i <?php if (userLiked($row['id'])) : ?> class="fa fa-thumbs-up like-btn" <?php else : ?> class="fa fa-thumbs-o-up like-btn" <?php endif ?> data-id="<?php echo $row['id'] ?>"></i>
-                  <span class="likes"><?php echo getLikes($row['id']); ?></span>
-                  <!-- fine likes -->
-                  <?php //echo $row['id'] . " - " . $_SESSION['user_id']; 
-                  ?>
-                </div>
-
-                <div id='dislikes'>
-                  <!-- if user dislikes post, style button differently -->
-                  <i <?php if (userDisliked($row['id'])) : ?> class="fa fa-thumbs-down dislike-btn" <?php else : ?> class="fa fa-thumbs-o-down dislike-btn" <?php endif ?> data-id="<?php echo $row['id'] ?>"></i>
-                  <span class="dislikes"><?php echo getDislikes($row['id']); ?></span>
-                  <!-- fine dislikes -->
-                </div>
+                  <div id='dislikes'>
+                    <!-- if user dislikes post, style button differently -->
+                    <i <?php if (userDisliked($row['id'])) : ?> class="fa fa-thumbs-down dislike-btn" <?php else : ?> class="fa fa-thumbs-o-down dislike-btn" <?php endif ?> data-id="<?php echo $row['id'] ?>"></i>
+                    <span class="dislikes"><?php echo getDislikes($row['id']); ?></span>
+                    <!-- fine dislikes -->
+                  </div>
+                <?php
+                }
+                ?>
 
               </section>
           <?php
