@@ -5,7 +5,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, legend, label, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -59,6 +59,49 @@ input::-moz-focus-inner {
   margin: 3px 10px;
 }
 
+/* STYLE FOR STAR RATING */
+
+.rate {
+  float: left;
+  height: 46px;
+  padding: 0 10px;
+}
+
+.rate:not(:checked)>input {
+  position: absolute;
+  top: -9999px;
+}
+
+.rate:not(:checked)>label {
+  float: right;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 30px;
+  color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+  content: '★ ';
+}
+
+.rate>input:checked~label {
+  color: #ffc700;
+}
+
+.rate:not(:checked)>label:hover, .rate:not(:checked)>label:hover~label {
+  color: #deb217;
+}
+
+.rate>input:checked+label:hover, .rate>input:checked+label:hover~label, .rate>input:checked~label:hover, .rate>input:checked~label:hover~label, .rate>label:hover~input:checked~label {
+  color: #c59b08;
+}
+
+/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
+
+/* END STYLE FOR STAR RATING */
+
 /* START INPUT STYLE */
 
 .input-field {
@@ -68,7 +111,7 @@ input::-moz-focus-inner {
   margin: 30px auto;
 }
 
-label {
+label:not(body label.stars) {
   position: absolute;
   top: 0;
   left: 0;
@@ -78,7 +121,7 @@ label {
   cursor: text;
 }
 
-input, button {
+input:not(input[type=checkbox]), button {
   width: 100%;
   border: 0;
   outline: 0;
@@ -92,7 +135,7 @@ input:invalid {
   outline: 0;
 }
 
-input:focus~label, input:valid~label {
+input:focus~label:not(body label.stars), input:valid~label:not(body label.stars) {
   font-size: 14px;
   top: -24px;
 }
@@ -103,6 +146,26 @@ input:focus~label, input:valid~label {
   width: 50%;
   margin: 5px auto;
 }
+
+/* STYLE LIKE DISLIKE BUTTONS */
+
+.fa {
+  font-size: 2.2em;
+}
+
+.fa-thumbs-down, .fa-thumbs-o-down {
+  transform: rotateY(180deg);
+}
+
+#likes, #dislikes {
+  float: left;
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+  font-size: 30px;
+}
+
+/* END STYLE LIKE DISLIKE BUTTON */
 
 /* START ERROR MESSAGES */
 
@@ -123,7 +186,7 @@ input:focus~label, input:valid~label {
 
 /* END ERROR MESSAGES */
 
-input, select, textarea {
+inputt:not(input[type=checkbox]), select, textarea {
   -moz-appearance: none;
   -webkit-appearance: none;
   -ms-appearance: none;
@@ -149,7 +212,7 @@ body {
   font-weight: 300;
 }
 
-input, textarea, select {
+input:not(input[type=checkbox]), textarea, select {
   color: #474f51;
   font-size: 13.5pt;
   font-family: 'Yanone Kaffeesatz';

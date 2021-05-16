@@ -8,6 +8,7 @@ if (!isset($_GET['id']) || (isset($_GET['id']) && !ctype_digit(strval($_GET['id'
 }
 
 require("includes/header.php");
+require("./includes/functions.inc.php");
 
 $sql = "SELECT * FROM company WHERE id=" . $_GET['id'];
 
@@ -35,7 +36,7 @@ if (mysqli_num_rows($result)) {
             <h2>Dati Generali</h2>
           </header>
           <ul class="link-list">
-            <!-- Dati che devo richiedere a MySQL -->
+            <!-- Dati che devo richiedere al DBMS -->
             <li>Indirizzo :
               <?php echo $row['region'] . ", "; ?>
               <?php echo $row['city'] . ", "; ?>
@@ -67,9 +68,103 @@ if (mysqli_num_rows($result)) {
           <header>
             <h2><?php echo $row['name']; ?></h2>
             <?php if (isset($row['description'])) echo "<h3>'" . $row['description'] . "'</h3>"; ?>
+
+            <?php
+            if (isset($_SESSION['id'])) {
+            ?>
+              <section style="background-color: rgba(0,0,0, 0.02)">
+
+                <form action="./includes/add_post.php" method="post">
+
+                  <input type="checkbox" name="anonymous" id="anonymous" value="1">Pubblica il tuo commento senza mostrare il tuo nome
+
+                  <input type="hidden" name="company_id" value="<?php echo $_GET['id']; ?>">
+
+                  <div class="input-field">
+                    <input type="text" name="post" id="post" maxlength="500" required>
+                    <label for="post">Aggiungi un tuo commento (500 caratteri) *</label>
+                  </div>
+
+
+                  <div class="rate">
+                    <input type="radio" id="star5" name="rate" value="5" required />
+                    <label for="star5" title="text" class="stars">5 stars</label>
+                    <input type="radio" id="star4" name="rate" value="4" required />
+                    <label for="star4" title="text" class="stars">4 stars</label>
+                    <input type="radio" id="star3" name="rate" value="3" required />
+                    <label for="star3" title="text" class="stars">3 stars</label>
+                    <input type="radio" id="star2" name="rate" value="2" required />
+                    <label for="star2" title="text" class="stars">2 stars</label>
+                    <input type="radio" id="star1" name="rate" value="1" required />
+                    <label for="star1" title="text" class="stars">1 star</label>
+                  </div>
+
+                  <span>Aggiungi una valutazione *</span>
+
+                  <input type="submit" name="submit" value="Aggiungi il tuo post">
+
+                </form>
+
+              </section>
+
+            <?php
+            }
+            ?>
           </header>
 
-          <p>Qui ci andranno i commenti dalla tabella commenti</p>
+          <!-- Thumbs up / down -->
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+          <?php
+
+          $sql = "SELECT * FROM posts WHERE company_id=" . $_GET['id'];
+
+          $result = mysqli_query($conn, $sql);
+
+          if (mysqli_num_rows($result)) {
+            //se trovo corrispondenza nel db allora ...
+            while ($row = mysqli_fetch_assoc($result)) {
+              //var_dump($row);
+              //ciclo tutti i commenti dell'azienda
+          ?>
+              <section>
+                <?php
+                if ($row['anonymous'] == 0) {
+                  echo $row['user_id'];
+                } else {
+                  echo "Anonymous";
+                }
+                echo " [" . $row['rating'] . "/5 stelle]";
+                ?>
+                <br>
+
+                <div id='likes'>
+                  <!-- if user likes post, style button differently -->
+                  <i <?php if (userLiked($row['id'])) : ?> class="fa fa-thumbs-up like-btn" <?php else : ?> class="fa fa-thumbs-o-up like-btn" <?php endif ?> data-id="<?php echo $row['id'] ?>"></i>
+                  <span class="likes"><?php echo getLikes($row['id']); ?></span>
+                  <!-- fine likes -->
+                  <?php //echo $row['id'] . " - " . $_SESSION['user_id']; 
+                  ?>
+                </div>
+
+                <div id='dislikes'>
+                  <!-- if user dislikes post, style button differently -->
+                  <i <?php if (userDisliked($row['id'])) : ?> class="fa fa-thumbs-down dislike-btn" <?php else : ?> class="fa fa-thumbs-o-down dislike-btn" <?php endif ?> data-id="<?php echo $row['id'] ?>"></i>
+                  <span class="dislikes"><?php echo getDislikes($row['id']); ?></span>
+                  <!-- fine dislikes -->
+                </div>
+
+              </section>
+          <?php
+
+            }
+          } else {
+            echo "<p>";
+            echo "Sii il primo a commentare! ";
+            echo "</p>";
+          }
+
+          ?>
+
         </section>
 
       </div>

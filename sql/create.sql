@@ -1,11 +1,14 @@
+-- aggiungere thumbs up and down 
+-- https://s491.altervista.org/dashboard.pl?sid=a8643118660424f942e2357e87327f29
+
 DROP DATABASE `CompanyAdVisor`;
 CREATE DATABASE `CompanyAdVisor`;
 USE `CompanyAdVisor`;
 
-CREATE TABLE `roles` (
- `name` VARCHAR(255) PRIMARY KEY NOT NULL,
- `description` VARCHAR(255) NOT NULL
-);
+-- CREATE TABLE `roles` (
+--  `name` VARCHAR(255) PRIMARY KEY NOT NULL,
+--  `description` VARCHAR(255) NOT NULL
+-- );
 
 CREATE TABLE `users`(
   `id` INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -14,23 +17,31 @@ CREATE TABLE `users`(
   `username` VARCHAR(255) UNIQUE NOT NULL,
   `email` VARCHAR(255) UNIQUE NOT NULL,
   `password` VARCHAR(255) NOT NULL,
-  `role` VARCHAR(255) NOT NULL DEFAULT 'User',
-  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (`role`) REFERENCES `roles`(`name`) ON DELETE NO ACTION ON UPDATE CASCADE
+--   `role` VARCHAR(255) NOT NULL DEFAULT 'User',
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+--   FOREIGN KEY (`role`) REFERENCES `roles`(`name`) ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
-CREATE TABLE `permissions` (
-  `name` VARCHAR(255) NOT NULL PRIMARY KEY,
-  `description` VARCHAR(255) DEFAULT NULL
+CREATE TABLE IF NOT EXISTS `rating_info` (
+  `user_id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `rating_action` varchar(30) NOT NULL,
+  -- rating_info can be like, unline, dislike, undislike
+  PRIMARY KEY `PK_rating_info` (`user_id`,`post_id`)
 );
 
-CREATE TABLE `permission_role` (
-  `permission` VARCHAR(255) NOT NULL,
-  `role` VARCHAR(255) NOT NULL,
-  CONSTRAINT pk_permission_role PRIMARY KEY (permission, role),
-  FOREIGN KEY (`role`) REFERENCES `roles` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY (`permission`) REFERENCES `permissions` (`name`)
- );
+-- CREATE TABLE `permissions` (
+--   `name` VARCHAR(255) NOT NULL PRIMARY KEY,
+--   `description` VARCHAR(255) DEFAULT NULL
+-- );
+
+-- CREATE TABLE `permission_role` (
+--   `permission` VARCHAR(255) NOT NULL,
+--   `role` VARCHAR(255) NOT NULL,
+--   CONSTRAINT pk_permission_role PRIMARY KEY (permission, role),
+--   FOREIGN KEY (`role`) REFERENCES `roles` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+--   FOREIGN KEY (`permission`) REFERENCES `permissions` (`name`)
+--  );
 
 CREATE TABLE `company` (
   `id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -57,10 +68,10 @@ CREATE TABLE `posts` (
   FOREIGN KEY (`company_id`) REFERENCES `company` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-INSERT INTO `roles`(`name`, `description`) VALUES ('User', 'Default user account');
-INSERT INTO `roles`(`name`, `description`) VALUES ('SuperAdmin', 'Account that can manage the entire webapp');
+-- INSERT INTO `roles`(`name`, `description`) VALUES ('User', 'Default user account');
+-- INSERT INTO `roles`(`name`, `description`) VALUES ('SuperAdmin', 'Account that can manage the entire webapp');
 
-INSERT INTO `permissions`(`name`, `description`) VALUES ('delete_users', "Give the ability to delete other users' account");
+-- INSERT INTO `permissions`(`name`, `description`) VALUES ('delete_users', "Give the ability to delete other users' account");
 
 INSERT INTO `company` (`id`, `name`, `category`, `description`, `employees`, `region`, `city`, `street`, `street number`, `phone`, `email`) VALUES (NULL, 'Ferrari', 'car industry', 'most famous italian sports car producer', '1000', 'emilia-romagna', 'modena', 'emilia est', '85', '0536949111', 'ferrari@ferrari.it');
 INSERT INTO `company`(`name`, `category`, `description`, `region`, `city`, `street`, `street number`, `phone`, `email`) VALUES ('Sperlari', 'food producer', 'one of the largest food producer in lombardy', 'lombardia', 'Cremona', 'cremonese', '44', '3333333333', 'sperlari@sperlari.it');

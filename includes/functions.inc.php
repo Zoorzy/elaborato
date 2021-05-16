@@ -191,13 +191,87 @@ function loginUser($conn, $usernameemail, $pwd)
   if ($checkPwd === false) {
     header("location: ../login.php?error=wronglogin");
     exit();
-  } else if ($checkPwd === true){
+  } else if ($checkPwd === true) {
     //logged in 
     session_start();
 
     $_SESSION['id'] = $uidExists['id'];
     header("location: ../index.php");
     exit();
+  }
+}
 
+/* FUNCTIONS FOR LIKES - DISLIKES */
+
+// Get total number of likes for a particular post
+function getLikes($id)
+{
+  global $conn;
+  $sql = "SELECT COUNT(*) FROM rating_info 
+  		  WHERE post_id = $id AND rating_action='like'";
+  $rs = mysqli_query($conn, $sql);
+  $result = mysqli_fetch_array($rs);
+  return $result[0];
+}
+
+// Get total number of dislikes for a particular post
+function getDislikes($id)
+{
+  global $conn;
+  $sql = "SELECT COUNT(*) FROM rating_info 
+  		  WHERE post_id = $id AND rating_action='dislike'";
+  $rs = mysqli_query($conn, $sql);
+  $result = mysqli_fetch_array($rs);
+  return $result[0];
+}
+
+// Get total number of likes and dislikes for a particular post
+function getRating($id)
+{
+  global $conn;
+  $rating = array();
+  $likes_query = "SELECT COUNT(*) FROM rating_info WHERE post_id = $id AND rating_action='like'";
+  $dislikes_query = "SELECT COUNT(*) FROM rating_info 
+		  			WHERE post_id = $id AND rating_action='dislike'";
+  $likes_rs = mysqli_query($conn, $likes_query);
+  $dislikes_rs = mysqli_query($conn, $dislikes_query);
+  $likes = mysqli_fetch_array($likes_rs);
+  $dislikes = mysqli_fetch_array($dislikes_rs);
+  $rating = [
+    'likes' => $likes[0],
+    'dislikes' => $dislikes[0]
+  ];
+  return json_encode($rating);
+}
+
+// Check if user already likes post or not
+function userLiked($post_id)
+{
+  global $conn;
+  //global $user_id; ----NON FUNZIONA COSì, RIMANE SEMPRE 1 (non ho ben capito perchè)
+  $user_id = $_SESSION['id'];
+  $sql = "SELECT * FROM rating_info WHERE user_id='$user_id'
+  		  AND post_id='$post_id' AND rating_action='like'";
+  $result = mysqli_query($conn, $sql);
+  if (mysqli_num_rows($result) > 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// Check if user already dislikes post or not
+function userDisliked($post_id)
+{
+  global $conn;
+  //global $user_id;
+  $user_id = $_SESSION['id'];
+  $sql = "SELECT * FROM rating_info WHERE user_id='$user_id' 
+  		  AND post_id='$post_id' AND rating_action='dislike'";
+  $result = mysqli_query($conn, $sql);
+  if (mysqli_num_rows($result) > 0) {
+    return true;
+  } else {
+    return false;
   }
 }
