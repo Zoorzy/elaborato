@@ -22,13 +22,6 @@ CREATE TABLE `users`(
 --   FOREIGN KEY (`role`) REFERENCES `roles`(`name`) ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS `rating_info` (
-  `user_id` int(11) NOT NULL,
-  `post_id` int(11) NOT NULL,
-  `rating_action` varchar(30) NOT NULL,
-  -- rating_info can be like, dislike
-  PRIMARY KEY `PK_rating_info` (`user_id`,`post_id`)
-);
 
 -- CREATE TABLE `permissions` (
 --   `name` VARCHAR(255) NOT NULL PRIMARY KEY,
@@ -67,6 +60,16 @@ CREATE TABLE `posts` (
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, 
   FOREIGN KEY (`company_id`) REFERENCES `company` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS `rating_info` (
+  `user_id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `rating_action` varchar(30) NOT NULL,
+  -- rating_info can be like, dislike
+  PRIMARY KEY `PK_rating_info` (`user_id`,`post_id`),
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON UPDATE CASCADE ON DELETE CASCADE,
+  FOREIGN KEY (`post_id`) REFERENCES `posts`(`id`) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 -- INSERT INTO `roles`(`name`, `description`) VALUES ('User', 'Default user account');
