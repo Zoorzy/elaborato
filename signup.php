@@ -12,8 +12,8 @@ include_once "includes/header.php";
         <section>
 
           <header>
-            <h2>Sign Up</h2>
-            <h3>Please fill in all the fields to create an account</h3>
+            <h2>Registrati</h2>
+            <h3>Compila il form per creare un account</h3>
           </header>
 
           <form action="includes/signup.inc.php" method="post" id="SignupForm">
