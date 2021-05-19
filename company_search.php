@@ -31,7 +31,7 @@ include_once "includes/header.php";
                 <a href="./company_info.php?id=<?php echo $row['id']; ?>">
                   <section>
                     <h2>
-                      <?php echo ">> " . $row['name']; ?>
+                      <?php echo "> " . $row['name']; ?>
                     </h2>
 
                     <?php echo "("; ?>

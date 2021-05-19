@@ -166,9 +166,15 @@ if (mysqli_num_rows($result)) {
 
             }
           } else {
-            echo "<p>";
-            echo "Sii il primo a commentare! ";
-            echo "</p>";
+            if (isset($_SESSION['id'])) {
+              echo "<p>";
+              echo "Sii il primo a commentare! ";
+              echo "</p>";
+            } else {
+              echo "<p>";
+              echo "Prima <a href='./login.php'>Accedi</a> o <a href='./signup.php'>Registrati</a>";
+              echo "</p>";
+            }
           }
 
           ?>

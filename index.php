@@ -11,12 +11,9 @@ include_once "includes/header.php";
         <!-- Feature #1 -->
         <section>
           <a href="#" class="bordered-feature-image"><img src="/elaborato/images/pic01.jpg" alt="" /></a>
-          <h2>Welcome to Halcyonic</h2>
+          <h2>Benvenuto in CompanyAdVisor</h2>
           <p>
-            This is <strong>Halcyonic</strong>, a free site template
-            by <a href="http://twitter.com/ajlkn">AJ</a> for
-            <a href="http://html5up.net">HTML5 UP</a>. It's responsive,
-            built on HTML5 + CSS3, and includes 5 unique page layouts.
+            Qui su <strong>CompanyAdVisor</strong> hai la possibilità di controllare le esperienze di altr*, in mdoo di avere un'idea più chiara di come sarà il posto in cui potresti trovare lavoro
           </p>
         </section>
 
@@ -26,10 +23,9 @@ include_once "includes/header.php";
         <!-- Feature #2 -->
         <section>
           <a href="#" class="bordered-feature-image"><img src="/elaborato/images/pic02.jpg" alt="" /></a>
-          <h2>Responsive You Say?</h2>
+          <h2>Responsive</h2>
           <p>
-            Yes! Halcyonic is built to be fully responsive so it looks great
-            at every screen size, from desktops to tablets to mobile phones.
+            Si! CompanyAdVisor è progettato per essere completamente responsive, in mdoo da adattarsi al meglio a tutti gli schermi: dai pc agli smartphone ai tablet
           </p>
         </section>
 

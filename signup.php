@@ -26,12 +26,12 @@ include_once "includes/header.php";
 
             <div class="input-field">
               <input type="text" name="name" id="name" required>
-              <label for="name">Name</label>
+              <label for="name">Nome</label>
             </div>
 
             <div class="input-field">
               <input type="text" name="surname" id="surname" required>
-              <label for="surname">Surname</label>
+              <label for="surname">Cognome</label>
             </div>
 
             <div class="input-field">
@@ -41,16 +41,16 @@ include_once "includes/header.php";
 
             <div class="input-field">
               <input type="password" name="password" id="password" required>
-              <label for="password">Password (Letters, numbers, 8-20 chars long)</label>
+              <label for="password">Password (Lettere e numeri, tra gli 8 e i 20 caratteri)</label>
             </div>
 
             <div class="input-field">
               <input type="password" name="passwordrepeat" id="passwordrepeat" required>
-              <label for="passwordrepeat">Repeat Password</label>
+              <label for="passwordrepeat">Conferma Password</label>
             </div>
 
-            <button name="submit">Sign Up</button>
-            <br>Already have an account? <a href="./login.php">Log In!</a>
+            <button name="submit">Registrati</button>
+            <br>Hai già un account? <a href="./login.php">Accedi!</a>
 
           </form>
 
@@ -59,52 +59,53 @@ include_once "includes/header.php";
 
             if ($_GET['error'] == 'invalidusername') {
               echo '<div class="alert erroralert">';
-              echo '<strong>Username</strong> allows only [a-zA-Z0-9] characters';
+              echo '<strong>Username</strong> permette solo i caratteri [a-zA-Z0-9]';
               echo '</div>';
             }
             if ($_GET['error'] == 'invalidemail') {
               echo '<div class="alert erroralert">';
-              echo '<strong>Email</strong> not valid';
+              echo '<strong>Email</strong> non valida';
               echo '</div>';
             }
             if ($_GET['error'] == 'passworddontmatch') {
               echo '<div class="alert erroralert">';
-              echo '<strong>Passwords</strong> must corrispond';
+              echo 'Le <strong>password</strong> devono corrispondere';
               echo '</div>';
             }
             if ($_GET['error'] == 'usernametaken') {
               echo '<div class="alert erroralert">';
-              echo 'This <strong>username</strong> has been already taken';
+              echo 'Questo <strong>username</strong> è gia stato preso';
               echo '</div>';
             }
             if ($_GET['error'] == 'emailtaken') {
               echo '<div class="alert erroralert">';
-              echo 'This <strong>email</strong> has been already taken';
+              echo 'Questa <strong>email</strong> è già associata ad un account';
               echo '</div>';
             }
             if ($_GET['error'] == 'passwordlength') {
               echo '<div class="alert erroralert">';
-              echo 'This <strong>password</strong> must be 8 to 20 chars long';
+              echo 'La <strong>password</strong> deve essere lunga minimo 8 e massimo 20 caratteri';
               echo '</div>';
             }
             if ($_GET['error'] == 'passwordnumbers') {
               echo '<div class="alert erroralert">';
-              echo 'This <strong>password</strong> must contain at least 1 number';
+              echo 'La <strong>password</strong> deve contenere almeno 1 cifra';
               echo '</div>';
             }
             if ($_GET['error'] == 'passwordletters') {
               echo '<div class="alert erroralert">';
-              echo 'This <strong>password</strong> must contain at least 1 letter ([a-zA-Z])';
+              echo 'La <strong>password</strong> deve contenere al minimo 1 lettera ([a-zA-Z])';
               echo '</div>';
             }
             if ($_GET['error'] == 'passwordspecialchars') {
+              // non attivo per ora
               echo '<div class="alert erroralert">';
-              echo "This <strong>password</strong> must contain at least 1 special char";
+              echo "La <strong>password</strong> deve contenere al minimo 1 carattere speciale";
               echo '</div>';
             }
             if ($_GET['error'] == 'none') {
               echo '<div class="alert confirmalert">';
-              echo 'Signed up!';
+              echo 'Registrato con successo!';
               echo '</div>';
             }
           }

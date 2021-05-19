@@ -11,8 +11,8 @@ include_once "includes/header.php";
         <section>
 
           <header>
-            <h2>Log In</h2>
-            <h3>Please use your credentials to access</h3>
+            <h2>Accedi</h2>
+            <h3>Usa le tue credenziali per accedere</h3>
           </header>
 
           <!-- Main Content -->
@@ -20,7 +20,7 @@ include_once "includes/header.php";
 
             <div class="input-field">
               <input type="text" name="usernameemail" id="usernameemail" required>
-              <label for="usernameemail">Username or Email</label>
+              <label for="usernameemail">Username o Email</label>
             </div>
 
             <div class="input-field">
@@ -29,11 +29,11 @@ include_once "includes/header.php";
             </div>
 
 
-            <button name="submit">Log In</button>
+            <button name="submit">Accedi</button>
 
-            <br>Still not have an account? <a href="./signup.php">Sign up!</a>
+            <br>Non hai ancora un account? <a href="./signup.php">Registrati!</a>
             <!-- Non serve che lo sviluppi, è solo per implementare il server mail nella parte di sistemi -->
-            <br>Forgot your password? <a href="#">Send me an email to reset it now!</a>
+            <br>Non ricordi la password? <a href="#">Inviami una email per resettarla!</a>
 
           </form>
 
@@ -42,12 +42,12 @@ include_once "includes/header.php";
 
             if ($_GET['error'] == 'wronglogin') {
               echo '<div class="alert erroralert">';
-              echo 'The <strong>credentials</strong> used don\'t match our records';
+              echo 'Le <strong>credenziali</strong> usate non corrispondono a nessun account nel nostro database';
               echo '</div>';
             }
             if ($_GET['error'] == 'none') {
               echo '<div class="alert confirmalert">';
-              echo 'Signed up!';
+              echo 'Registrato con successo!';
               echo '</div>';
             }
           }
