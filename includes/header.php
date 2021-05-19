@@ -60,10 +60,10 @@ require("db_connect.inc.php");
               <div class="col-6 col-12-medium">
 
                 <!-- Banner Copy -->
-                <p>We do something really useful, important, and unique. Learn all about it here ...</p>
+                <p>Facciamo qualcosa di veramente utile, importante ed unico. Entra nella community per una migliore esperienza </p>
 
-                <a href="login.php" class="button-large">Log Me In</a>
-                <a href="signup.php" class="button-large">Sign Me Up</a>
+                <a href="login.php" class="button-large">Accedi</a>
+                <a href="signup.php" class="button-large">Registrati</a>
 
               </div>
               <div class="col-6 col-12-medium imp-medium">

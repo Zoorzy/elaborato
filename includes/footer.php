@@ -6,7 +6,7 @@
 
         <!-- Links -->
         <section>
-          <h2>Links to Important Stuff</h2>
+          <h2>Link utili</h2>
           <div>
             <div class="row">
               <div class="col-3 col-12-small">
@@ -50,12 +50,10 @@
 
         <!-- Blurb -->
         <section>
-          <h2>An Informative Text Blurb</h2>
+          <h2>Paragrafo informativo</h2>
           <p>
-            Duis neque nisi, dapibus sed mattis quis, rutrum accumsan sed. Suspendisse eu
-            varius nibh. Suspendisse vitae magna eget odio amet mollis. Duis neque nisi,
-            dapibus sed mattis quis, sed rutrum accumsan sed. Suspendisse eu varius nibh
-            lorem ipsum amet dolor sit amet lorem ipsum consequat gravida justo mollis.
+            Questo prodotto è stato realizzato per il progetto di maturità 2021 di Davide Zorzella.
+            Il prodotto finale è stato realizzato grazie al software Halcyonic, distribuito con licenza CCA da parte di HTML5UP.net
           </p>
         </section>
 

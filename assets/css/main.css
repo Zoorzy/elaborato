@@ -167,6 +167,10 @@ input:focus~label:not(body label.stars), input:valid~label:not(body label.stars)
 
 /* END STYLE LIKE DISLIKE BUTTON */
 
+#search_results a {
+  text-decoration:none;
+}
+
 /* START ERROR MESSAGES */
 
 .confirmalert {

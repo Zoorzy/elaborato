@@ -15,7 +15,7 @@ include_once "includes/header.php";
             <h2>Ricerca Aziende</h2>
             <div class="input-field">
               <input type="text" name="company_search" id="company_search">
-              <label for="company_search">Search for a company name</label>
+              <label for="company_search">Cerca il nome di un'azienda</label>
             </div>
           </header>
 
@@ -31,7 +31,7 @@ include_once "includes/header.php";
                 <a href="./company_info.php?id=<?php echo $row['id']; ?>">
                   <section>
                     <h2>
-                      <?php echo $row['name']; ?>
+                      <?php echo ">> " . $row['name']; ?>
                     </h2>
 
                     <?php echo "("; ?>
@@ -46,7 +46,7 @@ include_once "includes/header.php";
                       <?php echo $row['description']; ?>
                     </p>
                   </section>
-                </a>
+                </a><br>
             <?php
               }
             } else {

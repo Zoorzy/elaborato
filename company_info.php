@@ -88,15 +88,15 @@ if (mysqli_num_rows($result)) {
 
                   <div class="rate">
                     <input type="radio" id="star5" name="rate" value="5" required />
-                    <label for="star5" title="text" class="stars">5 stars</label>
+                    <label for="star5" title="text" class="stars">5 stelle</label>
                     <input type="radio" id="star4" name="rate" value="4" required />
-                    <label for="star4" title="text" class="stars">4 stars</label>
+                    <label for="star4" title="text" class="stars">4 stelle</label>
                     <input type="radio" id="star3" name="rate" value="3" required />
-                    <label for="star3" title="text" class="stars">3 stars</label>
+                    <label for="star3" title="text" class="stars">3 stelle</label>
                     <input type="radio" id="star2" name="rate" value="2" required />
-                    <label for="star2" title="text" class="stars">2 stars</label>
+                    <label for="star2" title="text" class="stars">2 stelle</label>
                     <input type="radio" id="star1" name="rate" value="1" required />
-                    <label for="star1" title="text" class="stars">1 star</label>
+                    <label for="star1" title="text" class="stars">1 stella</label>
                   </div>
 
                   <span>Aggiungi una valutazione *</span>

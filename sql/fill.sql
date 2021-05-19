@@ -1,0 +1,6 @@
+-- password is always qwerty1234 in these examples
+INSERT INTO `users`(`name`, `surname`, `username`, `email`, `password`) VALUES ('Davide', 'Zorzella', 'Zoorzy', 'davidezorzella100@gmail.com', '$2y$10$wGFETs.nAiayceFw6jKVO.xp0urfveoQbLNLAxN.6DsjSSk6gmXN.');
+INSERT INTO `users`(`name`, `surname`, `username`, `email`, `password`) VALUES ('Dylan', 'Somma', 'Dylan', 'dylansomma100@gmail.com', '$2y$10$wGFETs.nAiayceFw6jKVO.xp0urfveoQbLNLAxN.6DsjSSk6gmXN.');
+
+INSERT INTO `company` (`id`, `name`, `category`, `description`, `employees`, `region`, `city`, `street`, `street number`, `phone`, `email`) VALUES (NULL, 'Ferrari', 'Industria automobilistica', 'La più famosa produttrice italiana di auto sportive nel mondo', '1000', 'Emilia Romagna', 'Modena', 'emilia est', '85', '0536949111', 'ferrari@ferrari.it');
+INSERT INTO `company`(`name`, `category`, `description`, `region`, `city`, `street`, `street number`, `phone`, `email`) VALUES ('Sperlari', 'Produttore di cibo', 'Uno dei più grandi produttori di cibo in Lombardia', 'Lombardia', 'Cremona', 'cremonese', '44', '3333333333', 'sperlari@sperlari.it');
