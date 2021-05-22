@@ -172,7 +172,7 @@ if (mysqli_num_rows($result)) {
               echo "</p>";
             } else {
               echo "<p>";
-              echo "Prima <a href='./login.php'>Accedi</a> o <a href='./signup.php'>Registrati</a>";
+              echo "Per commentare e valutare i post degli altri <a href='./login.php'>Accedi</a> o <a href='./signup.php'>Registrati</a>";
               echo "</p>";
             }
           }
