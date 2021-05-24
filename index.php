@@ -70,8 +70,7 @@ include_once "includes/header.php";
         <!-- Box #1 -->
         <section>
           <header>
-            <h2>Who We Are</h2>
-            <h3>A subheading about who we are</h3>
+            <h2>Chi siamo</h2>
           </header>
           <a href="#" class="feature-image"><img src="/elaborato/images/pic05.jpg" alt="" /></a>
           <p>
@@ -87,15 +86,14 @@ include_once "includes/header.php";
         <!-- Box #2 -->
         <section>
           <header>
-            <h2>What We Do</h2>
-            <h3>A subheading about what we do</h3>
+            <h2>Riguardo a noi</h2>
           </header>
           <ul class="check-list">
-            <li>Sed mattis quis rutrum accum</li>
-            <li>Eu varius nibh suspendisse lorem</li>
-            <li>Magna eget odio amet mollis justo</li>
-            <li>Facilisis quis sagittis mauris</li>
-            <li>Amet tellus gravida lorem ipsum</li>
+            <li>Raccogliamo esperienze</li>
+            <li>Sempre aggiornati</li>
+            <li>Solida infrastruttura</li>
+            <li>Sicurezza garantita</li>
+            <li>Privacy al primo posto</li>
           </ul>
         </section>
 
@@ -105,8 +103,7 @@ include_once "includes/header.php";
         <!-- Box #3 -->
         <section>
           <header>
-            <h2>What People Are Saying</h2>
-            <h3>And a final subheading about our clients</h3>
+            <h2>Dicono di noi</h2>
           </header>
           <ul class="quote-list">
             <li>

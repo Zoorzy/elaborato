@@ -12,7 +12,7 @@ require("includes/header.php");
         <!-- Left Sidebar -->
         <section>
           <header>
-            <h2>Ultime notizie su di noi</h2>
+            <h2>Dicono di noi</h2>
           </header>
           <p>
             Qui trovi le nostre ultime apparizioni sulla rete
