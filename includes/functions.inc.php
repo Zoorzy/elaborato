@@ -249,7 +249,7 @@ function getRating($id)
 function userLiked($post_id)
 {
   global $conn;
-  //global $user_id; ----NON FUNZIONA COSì, RIMANE SEMPRE 1 (non ho ben capito perchè)
+  
   $user_id = $_SESSION['id'];
   $sql = "SELECT * FROM rating_info WHERE user_id='$user_id'
   		  AND post_id='$post_id' AND rating_action='like'";
@@ -265,7 +265,7 @@ function userLiked($post_id)
 function userDisliked($post_id)
 {
   global $conn;
-  //global $user_id;
+  
   $user_id = $_SESSION['id'];
   $sql = "SELECT * FROM rating_info WHERE user_id='$user_id' 
   		  AND post_id='$post_id' AND rating_action='dislike'";
