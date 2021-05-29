@@ -33,15 +33,15 @@ require("db_connect.inc.php");
 
             <!-- Nav -->
             <nav id="nav">
-              <a href="./index.php">Homepage</a>
-              <a href="./blog.php">Blog[3]</a>
-              <a href="./company_search.php">Ricerca aziende[2]</a>
+              <a href="./index.php">HOMEPAGE</a>
+              <a href="./blog.php">BLOG</a>
+              <a href="./company_search.php">RICERCA AZIENDE</a>
               <!-- A questa pagina si arriva dalla pagina 'Ricerca Aziende' -->
               <!-- <a href="./twocolumn2.php">Two Column #2</a> -->
-              <a href="./contact.php">Contatti[1]</a>
+              <a href="./contact.php">CONTATTI</a>
               <?php
               if (isset($_SESSION['id'])) {
-                echo '<a href="includes/logout.inc.php">Logout ' . $_SESSION['username'] . '</a>';
+                echo '<a href="includes/logout.inc.php">LOGOUT ' . $_SESSION['username'] . '</a>';
               }
               ?>
             </nav>
