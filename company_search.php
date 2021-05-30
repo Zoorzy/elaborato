@@ -77,24 +77,7 @@ include_once "includes/header.php";
         </section>
 
       </div>
-      <div class="col-3 col-12-medium">
-
-        <!-- Sidebar -->
-        <section>
-          <header>
-            <h2>Top 5 aziende negli ultimi 30 giorni</h2>
-          </header>
-          <!-- Query che prende le 5 aziende con le valutazioni migliori -->
-          <ul class="link-list">
-            <li><a href="./company_info.php?id=#">Azienda</a></li>
-            <li><a href="./company_info.php?id=#">Azienda</a></li>
-            <li><a href="./company_info.php?id=#">Azienda</a></li>
-            <li><a href="./company_info.php?id=#">Azienda</a></li>
-            <li><a href="./company_info.php?id=#">Azienda</a></li>
-          </ul>
-        </section>
-
-      </div>
+      
     </div>
   </div>
 </section>
